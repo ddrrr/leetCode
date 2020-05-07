@@ -1,22 +1,26 @@
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
 var lengthOfLongestSubstring = function(s) {
-    let maxlength = 0;
-    let resultArr = [];
+    let maxLength = 0;
+    let chrArr = [];
     for(let i = 0;i < s.length;i++){
-        let value = s.charAt(i);
-        let fIdx = resultArr.indexOf(value);
-        resultArr.push(value);
-        if(fIdx == -1){
-            if(resultArr.length > maxlength){
-                maxlength = resultArr.length;
-            }
+        let chr = s.charAt(i);
+        let findIdx = chrArr.indexOf(chr);
+        if(findIdx == -1){
+            chrArr.push(chr);
+            maxLength = Math.max(maxLength,chrArr.length);
         }
-        //找到一样的了。。
         else{
-            resultArr.splice(0,fIdx + 1);
+            chrArr.splice(0,findIdx+1);
+            chrArr.push(chr);
         }
     }
 
-    return maxlength;
-}
+    return maxLength;
+};
 
-console.log(lengthOfLongestSubstring('pwwkew'));
+console.log(lengthOfLongestSubstring('abcabcbb'));
+
