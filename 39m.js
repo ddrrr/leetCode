@@ -6,8 +6,6 @@
 var combinationSum = function (candidates, target) {
     candidates.sort((a,b) => a - b);   
     let finalResult = [];
-    finalResult.push
-
     
     _getComb(candidates,target,0,[],finalResult);
     return finalResult;
