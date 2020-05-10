@@ -21,17 +21,13 @@ var groupAnagrams = function(strs) {
         if(!mapArray){
             mapArray = [];
         }
-        mapArray.push(i);
+        mapArray.push(strs[i]);
         resultMap.set(newArray[i],mapArray);
     }
 
     //再把答案拿出来
     resultMap.forEach((value)=>{
-        let arr = [];
-        for(let i = 0;i < value.length;i++){
-            arr.push(strs[value[i]]);
-        }
-        resultArray.push(arr);
+        resultArray.push(value);
     })
 
     return resultArray;
