@@ -16,6 +16,7 @@ var myPow = function(x, n) {
     for(let i = str2radix.length - 1;i >= 0;i--){
         if(i < str2radix.length - 1){
             valuePow *= valuePow;
+            console.log(valuePow);
         }
 
         if(str2radix.charAt(i) == '1'){
@@ -26,4 +27,4 @@ var myPow = function(x, n) {
     return result;
 };
 
-console.log(myPow(2.0,10));
+console.log(myPow(2.3,10));
