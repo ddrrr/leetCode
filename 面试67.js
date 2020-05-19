@@ -8,11 +8,12 @@ var strToInt = function(str) {
 
     for(let i = 0;i < str.length;i++){
         let ch = str.charAt(i);
-        if(_isNumber(ch)){
+        let numofchar = _char2Number(ch);
+        if(numofchar >= 0){
             if(flag == undefined){
                 flag = true;
             }
-            result = result * 10 + _char2Number(ch);
+            result = result * 10 + numofchar;
         }
         else if(ch == ' ' && result == 0 && flag == undefined){
             continue;
@@ -48,7 +49,12 @@ var _isNumber = function(chr){
 }
 
 var _char2Number = function(chr){
-    return chr - '0';
+    if(chr.length == 1 && chr >= '0' && chr <= '9'){
+        return chr - '0'
+    }
+    else{
+        return -1;
+    }
 }
 
-console.log(strToInt("+-2"));
+console.log(strToInt("   -42"));
